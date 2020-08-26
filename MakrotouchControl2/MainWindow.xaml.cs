@@ -24,5 +24,15 @@ namespace MakrotouchControl2
 		{
 			InitializeComponent();
 		}
+
+		private void btExit_Click(object sender, RoutedEventArgs e)
+		{
+			Environment.Exit(0);
+		}
+
+		private void btMinimize_Click(object sender, RoutedEventArgs e)
+		{
+			WindowState = WindowState.Minimized;
+		}
 	}
 }
