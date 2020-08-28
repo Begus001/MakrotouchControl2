@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MakrotouchControl2"
         mc:Ignorable="d"
-        Title="Makrotouch" Height="360" Width="640" WindowStartupLocation="CenterScreen" Background="#FF262728" Foreground="#FFC7C7C7" WindowStyle="None" AllowsTransparency="True">
+        Title="Makrotouch" Height="360" Width="640" WindowStartupLocation="CenterScreen" Background="#FF262728" Foreground="#FFC7C7C7" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" MinWidth="640" MinHeight="360">
 	<Grid x:Name="grMain">
 		<Grid.RowDefinitions>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="30"/>
 			<RowDefinition/>
-			<RowDefinition/>
-			<RowDefinition Height="10*"/>
 		</Grid.RowDefinitions>
 		<Grid Grid.Row="2" x:Name="grListViewWrapper">
 			<Grid.ColumnDefinitions>
@@ -43,7 +43,7 @@
 		</Grid>
 		<Button x:Name="btExit" Content="X" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF5F2525" Foreground="#FFC7C7C7" BorderBrush="{x:Null}" Height="30" Click="btExit_Click"/>
 		<Button x:Name="btMinimize" Content="_" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Background="#FF353535" Foreground="#FFC7C7C7" Width="30" Height="30" BorderBrush="{x:Null}" Click="btMinimize_Click"/>
-		<Label x:Name="lbTitle" Content="Makrotouch" FontSize="16" Padding="3" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="#FFC7C7C7" Grid.Column="0" VerticalContentAlignment="Center" Margin="60,0,60,0" Height="30" VerticalAlignment="Top">
+		<Label x:Name="lbTitle" Content="Makrotouch" FontSize="16" Padding="3" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="#FFC7C7C7" Grid.Column="0" VerticalContentAlignment="Center" Margin="60,0,60,0" Height="30" VerticalAlignment="Top" MouseDown="lbTitle_MouseDown" MaxWidth="1900" MaxHeight="1060">
 		</Label>
 		<Grid x:Name="grStatusLabelWrapper" Height="30" Grid.Row="1" Width="640">
 			<Grid.ColumnDefinitions>

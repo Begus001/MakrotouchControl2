@@ -34,5 +34,11 @@ namespace MakrotouchControl2
 		{
 			WindowState = WindowState.Minimized;
 		}
+
+		private void lbTitle_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			if (e.ChangedButton == MouseButton.Left)
+				DragMove();
+		}
 	}
 }
