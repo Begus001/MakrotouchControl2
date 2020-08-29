@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,27 +16,29 @@ using System.Windows.Shapes;
 
 namespace MakrotouchControl2
 {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
 	public partial class MainWindow : Window
 	{
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			ConfigManager.Init();
+
+			MacroManager.Init(lvMain);
+			MacroManager.TestPopulate();
 		}
 
-		private void btExit_Click(object sender, RoutedEventArgs e)
+		private void BtExit_Click(object sender, RoutedEventArgs e)
 		{
 			Environment.Exit(0);
 		}
 
-		private void btMinimize_Click(object sender, RoutedEventArgs e)
+		private void BtMinimize_Click(object sender, RoutedEventArgs e)
 		{
 			WindowState = WindowState.Minimized;
 		}
 
-		private void lbTitle_MouseDown(object sender, MouseButtonEventArgs e)
+		private void LbTitle_MouseDown(object sender, MouseButtonEventArgs e)
 		{
 			if (e.ChangedButton == MouseButton.Left)
 				DragMove();
