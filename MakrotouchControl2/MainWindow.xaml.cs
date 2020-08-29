@@ -24,8 +24,17 @@ namespace MakrotouchControl2
 
 			ConfigManager.Init();
 
+			Connection mainConnection = new Connection();
+			mainConnection.ConnectionStatusChanged += UpdateConnectionStatus;
+			mainConnection.Start();
+
 			MacroManager.Init(lvMain);
 			MacroManager.TestPopulate();
+		}
+
+		private void UpdateConnectionStatus(object sender, ConnectionChangedEventArgs e)
+		{
+			lbConnected.Content = e.NewConnectionStatus ? "Connected" : "Not connected";
 		}
 
 		private void BtExit_Click(object sender, RoutedEventArgs e)
