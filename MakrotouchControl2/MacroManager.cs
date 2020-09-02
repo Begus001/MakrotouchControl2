@@ -13,20 +13,20 @@ using System.Threading;
 
 namespace MakrotouchControl2
 {
-	public static class MacroManager
+	public class MacroManager
 	{
-		private static ListView MainList { get; set; } = null;
+		private ListView MainList { get; set; } = null;
 
-		private readonly static List<Macro> macroSource = new List<Macro>();
+		private readonly List<Macro> macroSource = new List<Macro>();
 
-		public static void Init(ListView mainList)
+		public MacroManager(ListView mainList)
 		{
 			MainList = mainList;
 
 			MainList.ItemsSource = macroSource;
 		}
 
-		public static void TestPopulate()
+		public void TestPopulate()
 		{
 			if (MainList == null) { Debug.WriteLine("MainList not assigned"); return; }
 
@@ -36,7 +36,7 @@ namespace MakrotouchControl2
 			}
 		}
 
-		public static void Clear()
+		public void Clear()
 		{
 			MainList.ItemsSource = null;
 			MainList.Items.Clear();

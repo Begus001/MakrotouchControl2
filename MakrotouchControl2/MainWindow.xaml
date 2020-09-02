@@ -91,7 +91,7 @@
 			</Grid.ColumnDefinitions>
 			<Label x:Name="lbConnected" Grid.Column="0" Content="Not connected" Margin="0,0,0,0" HorizontalContentAlignment="Center" Foreground="#FFC7C7C7"
 				   VerticalContentAlignment="Center"/>
-			<Label x:Name="lbIP" Content="IP: " Grid.Column="1" Margin="0,0,0,0" HorizontalContentAlignment="Center" Foreground="#FFC7C7C7" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbIP" Content="IP:" Grid.Column="1" Margin="0,0,0,0" HorizontalContentAlignment="Center" Foreground="#FFC7C7C7" VerticalContentAlignment="Center"/>
 		</Grid>
 	</Grid>
 </Window>

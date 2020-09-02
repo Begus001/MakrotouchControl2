@@ -1,5 +1,6 @@
 {
 	"macroCfgLocation": "C:\\Users\\%username%\\AppData\\Roaming\\Makrotouch\\macros.json",
 	"imgLocation": "C:\\Users\\%username%\\AppData\\Roaming\\Makrotouch\\img\\",
-	"port": 42069
+	"port": 42069,
+	"timeout": 3000
 }

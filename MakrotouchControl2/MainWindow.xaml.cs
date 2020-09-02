@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,27 +19,39 @@ namespace MakrotouchControl2
 {
 	public partial class MainWindow : Window
 	{
+		public readonly Connection MainConnection;
+		public readonly MacroManager MacroManager;
+
 		public MainWindow()
 		{
 			InitializeComponent();
 
 			ConfigManager.Init();
 
-			Connection mainConnection = new Connection();
-			mainConnection.ConnectionStatusChanged += UpdateConnectionStatus;
-			mainConnection.Start();
+			MainConnection = new Connection();
+			MainConnection.ConnectionStatusChanged += UpdateConnectionStatus;
+			MainConnection.Start();
 
-			MacroManager.Init(lvMain);
+			MacroManager = new MacroManager(lvMain);
 			MacroManager.TestPopulate();
 		}
 
 		private void UpdateConnectionStatus(object sender, ConnectionChangedEventArgs e)
 		{
-			lbConnected.Content = e.NewConnectionStatus ? "Connected" : "Not connected";
+			Application.Current.Dispatcher.Invoke(() =>
+			{
+				lbConnected.Content = e.NewConnectionStatus ? "Connected" : "Not connected";
+				if (e.IP != IPAddress.None)
+					lbIP.Content = $"IP: {e.IP}";
+				else
+					lbIP.Content = "IP:";
+			});
 		}
 
 		private void BtExit_Click(object sender, RoutedEventArgs e)
 		{
+			MainConnection.Send("makrotouch disconnect");
+			MainConnection.RequestClose = true;
 			Environment.Exit(0);
 		}
 
